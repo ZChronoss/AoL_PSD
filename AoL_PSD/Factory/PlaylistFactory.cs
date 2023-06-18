@@ -8,7 +8,7 @@ namespace AoL_PSD.Factory
 {
     public class PlaylistFactory
     {
-        public Playlist CreatePlaylist(User user, Music music, DateTime date)
+        public static Playlist CreatePlaylist(User user, Music music, DateTime date)
         {
             Playlist newPlaylist = new Playlist()
             {

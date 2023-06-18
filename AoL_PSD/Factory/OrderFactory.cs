@@ -8,7 +8,7 @@ namespace AoL_PSD.Factory
 {
     public class OrderFactory
     {
-        public Order CreateOrder(User user, DateTime date)
+        public static Order CreateOrder(User user, DateTime date)
         {
             Order newOrder = new Order()
             {
@@ -17,5 +17,6 @@ namespace AoL_PSD.Factory
             };
 
             return newOrder;
+        }
     }
 }

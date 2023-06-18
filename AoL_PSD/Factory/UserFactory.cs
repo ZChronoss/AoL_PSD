@@ -8,7 +8,7 @@ namespace AoL_PSD.Factory
 {
     public class UserFactory
     {
-        public User CreateUser(string username, string email, string password)
+        public static User CreateUser(string username, string email, string password)
         {
             User newUser = new User()
             {
