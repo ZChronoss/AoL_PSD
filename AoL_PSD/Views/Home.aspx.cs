@@ -13,5 +13,15 @@ namespace AoL_PSD.Views
         {
 
         }
+
+        protected void premiumBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/Premium.aspx");
+        }
+
+        protected void addSongBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/AddSong.aspx");
+        }
     }
 }

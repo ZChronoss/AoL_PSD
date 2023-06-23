@@ -25,10 +25,10 @@ namespace AoL_PSD.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Genre> Genres { get; set; }
-        public virtual DbSet<Music> Musics { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<Playlist> Playlists { get; set; }
+        public virtual DbSet<Genre> Genre { get; set; }
+        public virtual DbSet<Music> Music { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<Playlist> Playlist { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

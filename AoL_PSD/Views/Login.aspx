@@ -27,6 +27,9 @@
             <div class="errorMsg">
                 <asp:Label ID="NoUser" runat="server" Visible="false" BorderStyle="Solid" BackColor="Red" style="padding:20px;" Text="User does not exist" ></asp:Label>
             </div>
+            <div class="register-button">
+                <asp:Button ID="RegisterBtn" runat="server" Text="Make a new account" OnClick="RegisterBtn_Click"/>
+            </div>
         </div>
     </form>
 </body>

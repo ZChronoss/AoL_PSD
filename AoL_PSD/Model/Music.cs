@@ -17,10 +17,11 @@ namespace AoL_PSD.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Music()
         {
-            this.Playlists = new HashSet<Playlist>();
+            this.Playlist = new HashSet<Playlist>();
         }
     
         public int Id { get; set; }
+        public string Title { get; set; }
         public int ArtistId { get; set; }
         public int GenreId { get; set; }
         public System.DateTime DateAdded { get; set; }
@@ -28,7 +29,7 @@ namespace AoL_PSD.Model
     
         public virtual Genre Genre { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Playlist> Playlists { get; set; }
+        public virtual ICollection<Playlist> Playlist { get; set; }
         public virtual User User { get; set; }
     }
 }

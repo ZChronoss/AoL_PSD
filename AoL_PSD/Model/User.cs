@@ -17,9 +17,9 @@ namespace AoL_PSD.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.Musics = new HashSet<Music>();
-            this.Orders = new HashSet<Order>();
-            this.Playlists = new HashSet<Playlist>();
+            this.Music = new HashSet<Music>();
+            this.Order = new HashSet<Order>();
+            this.Playlist = new HashSet<Playlist>();
         }
     
         public int Id { get; set; }
@@ -29,10 +29,10 @@ namespace AoL_PSD.Model
         public int IsPremium { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Music> Musics { get; set; }
+        public virtual ICollection<Music> Music { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Playlist> Playlists { get; set; }
+        public virtual ICollection<Playlist> Playlist { get; set; }
     }
 }
