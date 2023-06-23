@@ -91,6 +91,7 @@
     </Content>
     <Content Include="Views\Home.aspx" />
     <Content Include="Views\Login.aspx" />
+    <Content Include="Views\Premium.aspx" />
     <Content Include="Views\Register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -146,6 +147,13 @@
     </Compile>
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Premium.aspx.cs">
+      <DependentUpon>Premium.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Premium.aspx.designer.cs">
+      <DependentUpon>Premium.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
