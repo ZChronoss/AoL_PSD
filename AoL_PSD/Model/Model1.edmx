@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Genre">
           <Key>
             <PropertyRef Name="Id" />
@@ -17,6 +17,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="ArtistId" Type="int" Nullable="false" />
           <Property Name="GenreId" Type="int" Nullable="false" />
           <Property Name="DateAdded" Type="date" Nullable="false" />
@@ -136,8 +137,7 @@
             <End Role="Music" EntitySet="Music" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -147,19 +147,20 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Musics" Relationship="Self.FK_Table_ToGenre" FromRole="Genre" ToRole="Music" />
+          <NavigationProperty Name="Music" Relationship="Self.FK_Table_ToGenre" FromRole="Genre" ToRole="Music" />
         </EntityType>
         <EntityType Name="Music">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ArtistId" Type="Int32" Nullable="false" />
           <Property Name="GenreId" Type="Int32" Nullable="false" />
           <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FileLocation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Genre" Relationship="Self.FK_Table_ToGenre" FromRole="Music" ToRole="Genre" />
-          <NavigationProperty Name="Playlists" Relationship="Self.FK_Playlist_ToMusic" FromRole="Music" ToRole="Playlist" />
+          <NavigationProperty Name="Playlist" Relationship="Self.FK_Playlist_ToMusic" FromRole="Music" ToRole="Playlist" />
           <NavigationProperty Name="User" Relationship="Self.FK_Table_ToUser" FromRole="Music" ToRole="User" />
         </EntityType>
         <EntityType Name="Order">
@@ -191,9 +192,9 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsPremium" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Musics" Relationship="Self.FK_Table_ToUser" FromRole="User" ToRole="Music" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_ToUser" FromRole="User" ToRole="Order" />
-          <NavigationProperty Name="Playlists" Relationship="Self.FK_Playlist_ToUser" FromRole="User" ToRole="Playlist" />
+          <NavigationProperty Name="Music" Relationship="Self.FK_Table_ToUser" FromRole="User" ToRole="Music" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_ToUser" FromRole="User" ToRole="Order" />
+          <NavigationProperty Name="Playlist" Relationship="Self.FK_Playlist_ToUser" FromRole="User" ToRole="Playlist" />
         </EntityType>
         <Association Name="FK_Table_ToGenre">
           <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
@@ -256,30 +257,30 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Genres" EntityType="Self.Genre" />
-          <EntitySet Name="Musics" EntityType="Self.Music" />
-          <EntitySet Name="Orders" EntityType="Self.Order" />
-          <EntitySet Name="Playlists" EntityType="Self.Playlist" />
+          <EntitySet Name="Genre" EntityType="Self.Genre" />
+          <EntitySet Name="Music" EntityType="Self.Music" />
+          <EntitySet Name="Order" EntityType="Self.Order" />
+          <EntitySet Name="Playlist" EntityType="Self.Playlist" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FK_Table_ToGenre" Association="Self.FK_Table_ToGenre">
-            <End Role="Genre" EntitySet="Genres" />
-            <End Role="Music" EntitySet="Musics" />
+            <End Role="Genre" EntitySet="Genre" />
+            <End Role="Music" EntitySet="Music" />
           </AssociationSet>
           <AssociationSet Name="FK_Playlist_ToMusic" Association="Self.FK_Playlist_ToMusic">
-            <End Role="Music" EntitySet="Musics" />
-            <End Role="Playlist" EntitySet="Playlists" />
+            <End Role="Music" EntitySet="Music" />
+            <End Role="Playlist" EntitySet="Playlist" />
           </AssociationSet>
           <AssociationSet Name="FK_Table_ToUser" Association="Self.FK_Table_ToUser">
             <End Role="User" EntitySet="Users" />
-            <End Role="Music" EntitySet="Musics" />
+            <End Role="Music" EntitySet="Music" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_ToUser" Association="Self.FK_Order_ToUser">
             <End Role="User" EntitySet="Users" />
-            <End Role="Order" EntitySet="Orders" />
+            <End Role="Order" EntitySet="Order" />
           </AssociationSet>
           <AssociationSet Name="FK_Playlist_ToUser" Association="Self.FK_Playlist_ToUser">
             <End Role="User" EntitySet="Users" />
-            <End Role="Playlist" EntitySet="Playlists" />
+            <End Role="Playlist" EntitySet="Playlist" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -288,7 +289,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
-          <EntitySetMapping Name="Genres">
+          <EntitySetMapping Name="Genre">
             <EntityTypeMapping TypeName="Database1Model.Genre">
               <MappingFragment StoreEntitySet="Genre">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -296,10 +297,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Musics">
+          <EntitySetMapping Name="Music">
             <EntityTypeMapping TypeName="Database1Model.Music">
               <MappingFragment StoreEntitySet="Music">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
                 <ScalarProperty Name="GenreId" ColumnName="GenreId" />
                 <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
@@ -307,7 +309,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Orders">
+          <EntitySetMapping Name="Order">
             <EntityTypeMapping TypeName="Database1Model.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -316,7 +318,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Playlists">
+          <EntitySetMapping Name="Playlist">
             <EntityTypeMapping TypeName="Database1Model.Playlist">
               <MappingFragment StoreEntitySet="Playlist">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -350,7 +352,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

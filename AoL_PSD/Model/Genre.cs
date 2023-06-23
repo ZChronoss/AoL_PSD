@@ -17,13 +17,13 @@ namespace AoL_PSD.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Genre()
         {
-            this.Musics = new HashSet<Music>();
+            this.Music = new HashSet<Music>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Music> Musics { get; set; }
+        public virtual ICollection<Music> Music { get; set; }
     }
 }

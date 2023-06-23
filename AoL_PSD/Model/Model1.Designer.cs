@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\renal\OneDrive\Documents\MATKUL\SEMESTER 4\Pattern Software Design\LEC\AoL\AoL_PSD\AoL_PSD\Model\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\bryan\Documents\Visual Studio 2019 PROJECTS\AoL_PSD\AoL_PSD\Model\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
