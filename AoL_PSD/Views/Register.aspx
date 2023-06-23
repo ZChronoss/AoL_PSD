@@ -37,6 +37,11 @@
             <div class="errorMessage">
                 <asp:Label ID="ErrorLabel" runat="server" Visible="false" BorderStyle="Solid" BackColor="Red" style="padding:20px;" Text="User with the same email already exists!"></asp:Label>
             </div>
+
+            <div class="login-button">
+                <asp:Label ID="LoginLbl" runat="server" Text="Already have an account?"></asp:Label>
+                <asp:Button ID="LoginBtn" runat="server" Text="Sign in" OnClick="LoginBtn_Click" />
+            </div>
         </div>
     </form>
 </body>

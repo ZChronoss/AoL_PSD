@@ -22,7 +22,7 @@ namespace AoL_PSD.Views
         }
 
         protected void LoginBtn_Click(object sender, EventArgs e)
-        {            
+        {
             String username = UsernameTextBox.Text;
             String password = PasswordTextBox.Text;
             bool remember = RememberMe.Checked;
@@ -64,6 +64,11 @@ namespace AoL_PSD.Views
             {
                 Response.Redirect("~/Views/Home.aspx");
             }
+        }
+
+        protected void RegisterBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/Register.aspx");
         }
     }
 }

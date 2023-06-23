@@ -79,5 +79,10 @@ namespace AoL_PSD.Views
                 Response.Redirect("~/Views/Login.aspx");
             }
         }
+
+        protected void LoginBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/Login.aspx");
+        }
     }
 }
