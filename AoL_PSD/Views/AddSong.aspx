@@ -18,16 +18,22 @@
 
             <div class="genre">
                     <asp:Label ID="GenreTextBox" runat="server" Text="Genre:"></asp:Label>
-                    <asp:DropDownList ID="GenreDropList" runat="server" Width="100" Height="30" Font-Size="Medium"></asp:DropDownList>
+                    <asp:DropDownList ID="GenreDropList" runat="server" Width="100" Height="30" Font-Size="Medium"></asp:DropDownList><br />
+                    <asp:Label ID="GenreValid" runat="server" Visible="false" style="color:red;" Text="Select a genre!" ></asp:Label>
             </div>
 
             <div class="file" style="text-align:center;">
-                <asp:FileUpload ID="FileUpload1" runat="server" />
-                <asp:Label ID="FileValid" runat="server" Visible="false" style="color:red;" Text="Insert a song file!" ></asp:Label>
+                <asp:FileUpload ID="SongFile" runat="server" accept=".mp3,.m4a,.wav"  /><br />
+                <asp:Label ID="FileValid" runat="server" Visible="false" style="color:red;" Text="Insert a song file!" ></asp:Label>  
+                <asp:Label ID="FileValid2" runat="server" Visible="false" style="color:red;" Text="Please insert a file with a valid type! (.mp3, .m4a, or .wav)" ></asp:Label>   
             </div>
 
             <div class="button">
                 <asp:Button ID="addMusicBtn" runat="server" Text="Add song!" OnClick="addMusicBtn_Click" BackColor="LightGreen" Width="100"/>
+            </div>
+
+            <div class="errorMessage">
+                <asp:Label ID="ErrorLabel" runat="server" Visible="false" BorderStyle="Solid" BackColor="Red" style="padding:20px;" Text="You inserted this song already!"></asp:Label>
             </div>
 
         </div>

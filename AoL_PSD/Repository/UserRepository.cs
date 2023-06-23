@@ -13,7 +13,7 @@ namespace AoL_PSD.Repository
         public User Login(String username, String password)
         {
             User user = db.Users.Where(x => x.Username == username && x.Password == password).FirstOrDefault();
-            return user;
+            return user;          
         }
 
         public void Register(string username, string email, string password)

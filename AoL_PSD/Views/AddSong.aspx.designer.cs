@@ -60,13 +60,22 @@ namespace AoL_PSD.Views
         protected global::System.Web.UI.WebControls.DropDownList GenreDropList;
 
         /// <summary>
-        /// FileUpload1 control.
+        /// GenreValid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.Label GenreValid;
+
+        /// <summary>
+        /// SongFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload SongFile;
 
         /// <summary>
         /// FileValid control.
@@ -78,6 +87,15 @@ namespace AoL_PSD.Views
         protected global::System.Web.UI.WebControls.Label FileValid;
 
         /// <summary>
+        /// FileValid2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label FileValid2;
+
+        /// <summary>
         /// addMusicBtn control.
         /// </summary>
         /// <remarks>
@@ -85,5 +103,14 @@ namespace AoL_PSD.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button addMusicBtn;
+
+        /// <summary>
+        /// ErrorLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorLabel;
     }
 }

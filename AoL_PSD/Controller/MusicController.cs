@@ -12,13 +12,12 @@ namespace AoL_PSD.Controller
     {
         MusicHandler mh = new MusicHandler();
 
-        public List<bool> AddMusic(string title, Genre genre, string fileLoc)
+        public List<bool> AddMusic(User artist, string title, String genre, String fileName, String fileExt)
         {
             List<bool> validation = new List<bool>();
             bool valid = true;
 
-            // title harus ada, file harus ada
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 4; i++)
             {
                 validation.Add(true); 
             }
@@ -29,9 +28,27 @@ namespace AoL_PSD.Controller
                 valid = false;
             }
 
-            if (valid) // title ada, file ada
+            if (!genreValid(genre)) 
             {
+                validation[1] = false;
+                valid = false;
+            }
 
+            if (!extensionValid(fileExt))
+            {
+                validation[2] = false;
+                valid = false;
+            }
+
+            if (mh.sameFileName(fileName) != null)
+            {
+                validation[3] = false;
+                valid = false;
+            }
+
+            if (valid)
+            {
+                mh.CreateMusic(artist, title, genre, DateTime.Now, fileName+fileExt);
             }
 
             return validation;
@@ -49,5 +66,26 @@ namespace AoL_PSD.Controller
             // Gaada title
         }
 
+        private bool genreValid(string genre)
+        {
+            if(!genre.Equals(String.Empty))
+            {
+                return true;
+            }
+
+            return false;
+        }        
+
+        private bool extensionValid(String fileExt)
+        {
+            List<String> extension = new List<String> {".mp3", ".m4a", ".wav" };
+            bool contains = extension.Contains(fileExt, StringComparer.OrdinalIgnoreCase);
+            if (contains)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

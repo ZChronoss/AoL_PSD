@@ -8,12 +8,13 @@ namespace AoL_PSD.Factory
 {
     public class MusicFactory
     {
-        public static Music CreateMusic(User artist, Genre genre, DateTime dateAdded, string fileLoc)
+        public static Music CreateMusic(User artist, String title, String genreId, DateTime dateAdded, string fileLoc)
         {
             Music newMusic = new Music()
             {
                 ArtistId = artist.Id,
-                GenreId = genre.Id,
+                Title = title,
+                GenreId = Convert.ToInt32(genreId),
                 DateAdded = dateAdded,
                 FileLocation = fileLoc
             };
