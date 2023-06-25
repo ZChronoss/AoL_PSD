@@ -26,5 +26,22 @@ namespace AoL_PSD.Handler
             User user = ur.GetUserByEmail(email);
             return user;
         }
+
+        public User GetCurrentUser()
+        {
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                string userEmail = HttpContext.Current.User.Identity.Name;
+
+                return ur.GetUserByEmail(userEmail);
+            }
+
+            return null;
+        }
+
+        public void updatePremium(User user)
+        {
+            ur.EditPremium(user);
+        }
     }
 }

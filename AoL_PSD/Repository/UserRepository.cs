@@ -28,5 +28,16 @@ namespace AoL_PSD.Repository
             User user = db.Users.Where(x => x.Email == email).FirstOrDefault();
             return user;
         }
+
+        public void EditPremium(User user)
+        {
+            User premiumUser = db.Users.Where(x => x.Id == user.Id).FirstOrDefault();
+
+            if (premiumUser != null)
+            {
+                premiumUser.IsPremium = 1;
+                db.SaveChanges();
+            }
+        }
     }
 }
