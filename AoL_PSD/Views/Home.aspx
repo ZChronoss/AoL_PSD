@@ -23,8 +23,18 @@
 
             <div class="song">
                 <asp:Label ID="songLbl" runat="server" Text="Your songs"></asp:Label>
-                <asp:Button ID="addSongBtn" runat="server" Text="Add song" onClick="addSongBtn_Click"/><br />
-                <%--gridview--%>
+                <asp:Button ID="addSongBtn" runat="server" Text="Add song" onClick="addSongBtn_Click"/><br /><br />
+                <asp:GridView ID="MusicGridView" runat="server" AutoGenerateColumns="False">
+                    <Columns>
+                        <asp:BoundField DataField="Id" HeaderText="ID" SortExpression="Id" />
+                        <asp:BoundField DataField="Title" HeaderText="Name" SortExpression="Title" />
+                        <asp:BoundField DataField="Genre.Name" HeaderText="Genre" SortExpression="Genre.Name" />
+                        <asp:BoundField DataField="User.username" HeaderText="Artist" SortExpression="User.Username" />
+                        <asp:BoundField DataField="DateAdded" HeaderText="Date added" SortExpression="DateAdded" />
+                        <asp:BoundField DataField="FileLocation" HeaderText="Song" SortExpression="FileLocation" />
+                    </Columns>
+                </asp:GridView>
+                
             </div>
         </div>
     </form>

@@ -25,5 +25,10 @@ namespace AoL_PSD.Handler
         {
             return mr.GetGenres();
         }
+
+        public List<Music> GetMusics()
+        {
+            return mr.GetMusics();
+        }
     }
 }

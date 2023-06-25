@@ -27,5 +27,9 @@ namespace AoL_PSD.Repository
         {
             return db.Genre.ToList();
         }
+        public List<Music> GetMusics()
+        {
+            return db.Music.ToList();
+        }
     }
 }
