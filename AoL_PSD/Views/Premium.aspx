@@ -36,6 +36,14 @@
             <asp:Label ID="paymentLbl" runat="server" Text="Select a payment method" CssClass="payment-label"></asp:Label>
 
             <div class="payment-option">
+                <asp:RadioButtonList ID="paymentMethod" runat="server">
+                    <asp:ListItem Text="Credit Card" Value="credit"></asp:ListItem>
+                    <asp:ListItem Text="Paypal" Value="paypal"></asp:ListItem>
+                    <asp:ListItem Text="Gopay" Value="gopay"></asp:ListItem>
+                    <asp:ListItem Text="Indomaret" Value="indomaret"></asp:ListItem>
+                </asp:RadioButtonList>
+            </div>
+            <%--<div class="payment-option">
                 <asp:RadioButton ID="RadioButton1" runat="server" Text="Credit card" GroupName="paymentMethods" />
             </div>
 
@@ -49,9 +57,12 @@
 
             <div class="payment-option">
                 <asp:RadioButton ID="RadioButton4" runat="server" Text="Indomaret" GroupName="paymentMethods" />
-            </div>
+            </div>--%>
 
             <asp:Button ID="submitBtn" runat="server" Text="Submit and become premium!" onClick="submitBtn_Click"/>
+            <div class="errorMessage">
+                <asp:Label ID="ErrorLabel" runat="server" Visible="false" BorderStyle="Solid" BackColor="Red" style="padding:20px;" Text="Please select a payment method!"></asp:Label>
+            </div>
         </div>
     </form>
 </body>

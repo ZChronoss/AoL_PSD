@@ -14,23 +14,33 @@ namespace AoL_PSD.Views
         UserHandler uh = new UserHandler();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if(Session["User"] == null)
             {
-                User currentUser = uh.GetCurrentUser();
-                Session["CurrentUser"] = currentUser; // Store the current user in a session variable for easy access
+                Response.Redirect("~/Views/Login.aspx");
+            }
+
+            User curUser = (User)Session["User"];
+            if(curUser.IsPremium == 1)
+            {
+                Response.Redirect("~/Views/Home.aspx");
             }
         }
 
         protected void submitBtn_Click(object sender, EventArgs e)
         {
-            User currentUser = uh.GetCurrentUser();
-            if (currentUser != null)
+            if(paymentMethod.SelectedValue != "")
             {
-                uh.updatePremium(currentUser);
+                User curUser = (User)Session["User"];
+                curUser = uh.EditPremium(curUser.Id);
+                Session["User"] = curUser;
+                ErrorLabel.Visible = false;
+
+                Response.Redirect("~/Views/Home.aspx");
             }
-
-
-            Response.Redirect("~/Views/Home.aspx");
+            else
+            {
+                ErrorLabel.Visible = true;
+            }
         }
     }
 }
