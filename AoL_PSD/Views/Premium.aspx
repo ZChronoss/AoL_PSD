@@ -20,7 +20,7 @@
         .payment-option {
             display: flex;
             align-items: center;
-            justify-content: center; /* Add this line */
+            justify-content: center;
         }
 
         .payment-option input[type="radio"] {

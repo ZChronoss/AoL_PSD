@@ -14,16 +14,12 @@ namespace AoL_PSD.Views
         UserHandler uh = new UserHandler();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                User currentUser = uh.GetCurrentUser();
-                Session["CurrentUser"] = currentUser; // Store the current user in a session variable for easy access
-            }
+
         }
 
         protected void submitBtn_Click(object sender, EventArgs e)
         {
-            User currentUser = uh.GetCurrentUser();
+            User currentUser = (User)Session["User"];
             if (currentUser != null)
             {
                 uh.updatePremium(currentUser);
