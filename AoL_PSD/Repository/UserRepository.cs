@@ -29,15 +29,13 @@ namespace AoL_PSD.Repository
             return user;
         }
 
-        public void EditPremium(User user)
+        public User EditPremium(int userId)
         {
-            User premiumUser = db.Users.Where(x => x.Id == user.Id).FirstOrDefault();
+            User premUser = db.Users.Where(x => x.Id == userId).FirstOrDefault();
+            premUser.IsPremium = 1;
+            db.SaveChanges();
 
-            if (premiumUser != null)
-            {
-                premiumUser.IsPremium = 1;
-                db.SaveChanges();
-            }
+            return premUser; // ini buat update session user
         }
     }
 }

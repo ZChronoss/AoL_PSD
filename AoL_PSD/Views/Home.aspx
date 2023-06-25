@@ -12,6 +12,7 @@
         <div style="display:flex; flex-direction:column; align-items: center; justify-content: center; gap:10px;">
             <div class="premium-button">
                 <asp:Button ID="premiumBtn" runat="server" Text="Upgrade to premium" BackColor="Yellow" Width="170" Height="40" onClick="premiumBtn_Click"/>
+                <asp:Label ID="premiumUserLabel" runat="server" Text="You are a premium user!" ForeColor="Green" Visible="false"></asp:Label>
             </div>
 
             <div class="playlist">

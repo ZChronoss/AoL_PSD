@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AoL_PSD.Model;
 
 namespace AoL_PSD.Views
 {
@@ -11,7 +12,17 @@ namespace AoL_PSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["User"] == null)
+            {
+                Response.Redirect("~/Views/Login.aspx");
+            }
 
+            User curUser = (User)Session["User"];
+            if(curUser.IsPremium == 1)
+            {
+                premiumBtn.Visible = false;
+                premiumUserLabel.Visible = true;
+            }
         }
 
         protected void premiumBtn_Click(object sender, EventArgs e)
