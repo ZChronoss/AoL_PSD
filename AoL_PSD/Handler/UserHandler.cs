@@ -27,17 +27,17 @@ namespace AoL_PSD.Handler
             return user;
         }
 
-        //public User GetCurrentUser()
-        //{
-        //    if (HttpContext.Current.User.Identity.IsAuthenticated)
-        //    {
-        //        string userEmail = HttpContext.Current.User.Identity.Name;
+        public User GetCurrentUser()
+        {
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                string userEmail = HttpContext.Current.User.Identity.Name;
 
-        //        return ur.GetUserByEmail(userEmail);
-        //    }
+                return ur.GetUserByEmail(userEmail);
+            }
 
-        //    return null;
-        //}
+            return null;
+        }
 
         public void updatePremium(User user)
         {
