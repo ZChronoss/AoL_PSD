@@ -23,6 +23,28 @@ namespace AoL_PSD.Repository
             return sameMusic;
         }
 
+        public Music getRandomSong()
+        {
+            int songCount = db.Music.Count();
+            int musicId;
+            if(songCount == 1)
+            {
+                Music music = db.Music.First();
+                musicId = music.Id;
+            }
+            else
+            {
+                musicId = new Random().Next(0, songCount - 1);
+            }
+
+            return db.Music.Find(musicId);
+        }
+
+        public int getMusicCount()
+        {
+            return db.Music.Count();
+        }
+
         public List<Genre> GetGenres()
         {
             return db.Genre.ToList();

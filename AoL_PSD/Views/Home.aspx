@@ -24,6 +24,7 @@
             <div class="song">
                 <asp:Label ID="songLbl" runat="server" Text="Your songs"></asp:Label>
                 <asp:Button ID="addSongBtn" runat="server" Text="Add song" onClick="addSongBtn_Click"/><br /><br />
+                <asp:Button ID="notPremiumPlaySong" runat="server" Text="Play song" OnClick="notPremiumPlaySong_Click" Visible="true" />
                 <asp:GridView ID="MusicGridView" runat="server" AutoGenerateColumns="False">
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="ID" SortExpression="Id" />
@@ -32,6 +33,13 @@
                         <asp:BoundField DataField="User.username" HeaderText="Artist" SortExpression="User.Username" />
                         <asp:BoundField DataField="DateAdded" HeaderText="Date added" SortExpression="DateAdded" />
                         <asp:BoundField DataField="FileLocation" HeaderText="Song" SortExpression="FileLocation" />
+                        <asp:TemplateField HeaderText="Play" Visible="false">
+                            <ItemTemplate>
+                                <audio controls>
+                                    <source src="../Song/<%#Eval("FileLocation") %>" type="audio/ogg" />
+                                </audio>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
                 

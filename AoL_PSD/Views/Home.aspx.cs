@@ -17,7 +17,7 @@ namespace AoL_PSD.Views
             // buat tampilin Musics
             List<Music> themusics = mh.GetMusics();
             MusicGridView.DataSource = themusics;
-            MusicGridView.DataBind();
+            MusicGridView.DataBind();            
 
             // balikin user ke login kalo udh session dah end
             if (Session["User"] == null)
@@ -31,6 +31,13 @@ namespace AoL_PSD.Views
             {
                 premiumBtn.Visible = false;
                 premiumUserLabel.Visible = true;
+                MusicGridView.Columns[6].Visible = true;
+                notPremiumPlaySong.Visible = false;
+            }
+
+            if(mh.getMusicCount() == 0)
+            {
+                notPremiumPlaySong.Visible = false;
             }
         }
 
@@ -42,6 +49,14 @@ namespace AoL_PSD.Views
         protected void addSongBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Views/AddSong.aspx");
+        }
+
+        protected void notPremiumPlaySong_Click(object sender, EventArgs e)
+        {
+            Music randMusic = mh.getRandomSong();
+            String loc = "../Song/" + randMusic.FileLocation;
+
+            Response.Write("<audio controls> < source src = '" + loc + "' type = 'audio/ogg' /></ audio > ");
         }
     }
 }

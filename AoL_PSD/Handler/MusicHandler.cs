@@ -21,6 +21,17 @@ namespace AoL_PSD.Handler
             return sameMusic;
         }
 
+        public Music getRandomSong()
+        {
+            return mr.getRandomSong();
+        }
+
+        public int getMusicCount()
+        {
+            return mr.getMusicCount();
+        }
+
+
         public List<Genre> GetGenres()
         {
             return mr.GetGenres();
