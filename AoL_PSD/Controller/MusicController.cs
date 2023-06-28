@@ -40,7 +40,7 @@ namespace AoL_PSD.Controller
                 valid = false;
             }
 
-            if (mh.sameFileName(fileName) != null)
+            if (mh.sameFileName(fileName, fileExt) != null)
             {
                 validation[3] = false;
                 valid = false;

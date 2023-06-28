@@ -17,9 +17,9 @@ namespace AoL_PSD.Repository
             db.SaveChanges();
         }
 
-        public Music sameFileName(String fileName)
+        public Music sameFileName(String fileName, String fileExt)
         {
-            Music sameMusic = db.Music.Where(x => x.FileLocation == fileName).FirstOrDefault();
+            Music sameMusic = db.Music.Where(x => x.FileLocation == fileName+fileExt).FirstOrDefault();
             return sameMusic;
         }
 

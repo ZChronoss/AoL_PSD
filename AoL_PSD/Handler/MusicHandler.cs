@@ -15,9 +15,9 @@ namespace AoL_PSD.Handler
             mr.CreateMusic(artist, title, genre, dateAdded, fileLoc);
         }
 
-        public Music sameFileName(String fileName)
+        public Music sameFileName(String fileName, String fileExt)
         {
-            Music sameMusic = mr.sameFileName(fileName);
+            Music sameMusic = mr.sameFileName(fileName, fileExt);
             return sameMusic;
         }
 
