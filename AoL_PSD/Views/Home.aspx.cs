@@ -32,13 +32,12 @@ namespace AoL_PSD.Views
                 premiumBtn.Visible = false;
                 premiumUserLabel.Visible = true;
                 MusicGridView.Columns[6].Visible = true;
-                notPremiumPlaySong.Visible = false;
+                notPremiumLbl.Visible = false;
             }
 
-            if(mh.getMusicCount() == 0)
-            {
-                notPremiumPlaySong.Visible = false;
-            }
+            Music randMusic = mh.getRandomSong();
+            String loc = "../Song/" + randMusic.FileLocation;
+            audioLiteral.Text = "<audio controls> <source src='../Song/" + loc + "' type='audio/ogg' /></audio>";
         }
 
         protected void premiumBtn_Click(object sender, EventArgs e)
@@ -49,14 +48,6 @@ namespace AoL_PSD.Views
         protected void addSongBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Views/AddSong.aspx");
-        }
-
-        protected void notPremiumPlaySong_Click(object sender, EventArgs e)
-        {
-            Music randMusic = mh.getRandomSong();
-            String loc = "../Song/" + randMusic.FileLocation;
-
-            Response.Write("<audio controls> < source src = '" + loc + "' type = 'audio/ogg' /></ audio > ");
         }
     }
 }

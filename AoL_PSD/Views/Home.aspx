@@ -17,14 +17,17 @@
 
             <div class="playlist">
                 <asp:Label ID="playlistLbl" runat="server" Text="Your playlists"></asp:Label>
-                <asp:Button ID="addPlaylistBtn" runat="server" Text="Add playlist" /><br />
-                <%--gridview--%>
+                <asp:Button ID="addPlaylistBtn" runat="server" Text="Add playlist" /><br />               
             </div>
 
             <div class="song">
                 <asp:Label ID="songLbl" runat="server" Text="Your songs"></asp:Label>
                 <asp:Button ID="addSongBtn" runat="server" Text="Add song" onClick="addSongBtn_Click"/><br /><br />
-                <asp:Button ID="notPremiumPlaySong" runat="server" Text="Play song" OnClick="notPremiumPlaySong_Click" Visible="true" />
+                <div>
+                    <asp:Label ID="notPremiumLbl" runat="server" Text="You are not a premium user, you can only play random song."></asp:Label>
+                    <asp:Literal ID="audioLiteral" runat="server"></asp:Literal>
+                </div>
+                
                 <asp:GridView ID="MusicGridView" runat="server" AutoGenerateColumns="False">
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="ID" SortExpression="Id" />

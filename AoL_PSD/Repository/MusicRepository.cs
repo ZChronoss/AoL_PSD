@@ -25,18 +25,22 @@ namespace AoL_PSD.Repository
 
         public Music getRandomSong()
         {
+            List<int> musicIds = new List<int>();
+            List<Music> musics = GetMusics();
+
+            foreach(Music music in musics)
+            {
+                musicIds.Add(music.Id);
+            }
+
             int songCount = db.Music.Count();
-            int musicId;
             if(songCount == 1)
             {
                 Music music = db.Music.First();
-                musicId = music.Id;
+                return music;
             }
-            else
-            {
-                musicId = new Random().Next(0, songCount - 1);
-            }
-
+            int idx = new Random().Next(musicIds.Count);
+            int musicId = musicIds[idx];
             return db.Music.Find(musicId);
         }
 

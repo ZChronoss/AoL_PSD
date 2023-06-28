@@ -78,13 +78,22 @@ namespace AoL_PSD.Views
         protected global::System.Web.UI.WebControls.Button addSongBtn;
 
         /// <summary>
-        /// notPremiumPlaySong control.
+        /// notPremiumLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button notPremiumPlaySong;
+        protected global::System.Web.UI.WebControls.Label notPremiumLbl;
+
+        /// <summary>
+        /// audioLiteral control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal audioLiteral;
 
         /// <summary>
         /// MusicGridView control.
