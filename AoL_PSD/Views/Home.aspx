@@ -15,7 +15,7 @@
                 <asp:Label ID="premiumUserLabel" runat="server" Text="You are a premium user!" ForeColor="Green" Visible="false"></asp:Label>
             </div>
 
-            <asp:Button ID="Logout" runat="server" Text="Logout" OnClick="Logout_Click" BackColor="Red" style="color:white;"/>
+            <asp:Button ID="Logout" runat="server" Text="Logout" OnClick="Logout_Click" BackColor="Red" style="color:white;" Height="30" Width="69"/>
 
             <div class="playlist">
                 <asp:Label ID="playlistLbl" runat="server" Text="Your playlist" Visible="false"></asp:Label>
