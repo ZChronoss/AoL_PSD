@@ -40,6 +40,12 @@ namespace AoL_PSD.Repository
                 return music;
             }
             int idx = new Random().Next(musicIds.Count);
+
+            if (musicIds.Count() == 0)
+            {
+                return null;
+            }
+
             int musicId = musicIds[idx];
             return db.Music.Find(musicId);
         }
@@ -56,6 +62,11 @@ namespace AoL_PSD.Repository
         public List<Music> GetMusics()
         {
             return db.Music.ToList();
+        }
+        
+        public Music GetAMusic(int id)
+        {
+            return db.Music.Find(id);
         }
     }
 }

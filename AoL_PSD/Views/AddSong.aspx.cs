@@ -92,6 +92,7 @@ namespace AoL_PSD.Views
                 if (valid)
                 {
                     SongFile.SaveAs(Server.MapPath("~/Song/") + fileName + fileExt);
+                    Response.Redirect("~/Views/Home.aspx");
                 }
             }
             else
