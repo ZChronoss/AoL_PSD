@@ -14,9 +14,12 @@
                 <asp:Button ID="premiumBtn" runat="server" Text="Upgrade to premium" BackColor="Yellow" Width="170" Height="40" onClick="premiumBtn_Click"/>
                 <asp:Label ID="premiumUserLabel" runat="server" Text="You are a premium user!" ForeColor="Green" Visible="false"></asp:Label>
             </div>
+
             <asp:Button ID="Logout" runat="server" Text="Logout" OnClick="Logout_Click" BackColor="Red" style="color:white;"/>
+
             <div class="playlist">
                 <asp:Label ID="playlistLbl" runat="server" Text="Your playlist" Visible="false"></asp:Label>
+                <br />
                 <asp:GridView ID="PlaylistGridView" runat="server" AutoGenerateColumns="False" OnRowDeleting="PlaylistGridView_RowDeleting" >
                     <Columns>
                         <asp:BoundField DataField="Music.Id" HeaderText="Music ID" SortExpression="Music.Id" />
@@ -35,10 +38,11 @@
                     </Columns>
                 </asp:GridView>             
             </div>
+            <br /><br />
 
             <div class="song" >
                 <asp:Label ID="songLbl" runat="server" Text="Your songs"></asp:Label>
-                <asp:Button ID="addSongBtn" runat="server" Text="Add song" onClick="addSongBtn_Click"/><br /><br />
+                <asp:Button ID="addSongBtn" runat="server" Text="Add song" onClick="addSongBtn_Click"/>
                 <div>
                     <asp:Label ID="notPremiumLbl" runat="server" Text="You are not a premium user, you can only play random song."></asp:Label>
                     <asp:Literal ID="audioLiteral" runat="server"></asp:Literal>
