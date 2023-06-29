@@ -16,11 +16,17 @@
             </div>
 
             <div class="playlist">
-                <asp:Label ID="playlistLbl" runat="server" Text="Your playlists"></asp:Label>
-                <asp:Button ID="addPlaylistBtn" runat="server" Text="Add playlist" /><br />               
+                <asp:Label ID="playlistLbl" runat="server" Text="Your playlist"></asp:Label>
+                <asp:GridView ID="PlaylistGridView" runat="server" AutoGenerateColumns="False">
+                    <Columns>
+                        <asp:BoundField DataField="Music.Title" HeaderText="Name" SortExpression="Music.Title" />
+                        <asp:BoundField DataField="User.username" HeaderText="Artist" SortExpression="User.username" />
+                        <asp:BoundField DataField="DateAddedToPlaylist" HeaderText="Date added to Playlist" SortExpression="DateAddedToPlaylist" />
+                    </Columns>
+                </asp:GridView>             
             </div>
 
-            <div class="song">
+            <div class="song" >
                 <asp:Label ID="songLbl" runat="server" Text="Your songs"></asp:Label>
                 <asp:Button ID="addSongBtn" runat="server" Text="Add song" onClick="addSongBtn_Click"/><br /><br />
                 <div>
@@ -28,7 +34,9 @@
                     <asp:Literal ID="audioLiteral" runat="server"></asp:Literal>
                 </div>
                 
-                <asp:GridView ID="MusicGridView" runat="server" AutoGenerateColumns="False">
+                <asp:Label ID="noMusicLbl" runat="server" Text="There is no music yet!" Visible="false"></asp:Label>
+
+                <asp:GridView ID="MusicGridView" runat="server" AutoGenerateColumns="False" OnRowDeleting="MusicGridView_RowDeleting">
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="ID" SortExpression="Id" />
                         <asp:BoundField DataField="Title" HeaderText="Name" SortExpression="Title" />
@@ -43,9 +51,11 @@
                                 </audio>
                             </ItemTemplate>
                         </asp:TemplateField>
+                        
+                        <asp:ButtonField ButtonType="Button" CommandName="Delete" HeaderText="Add to playlist" ShowHeader="True" Text="Add" />
+                        
                     </Columns>
                 </asp:GridView>
-                
             </div>
         </div>
     </form>

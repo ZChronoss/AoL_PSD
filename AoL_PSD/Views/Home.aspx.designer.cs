@@ -51,13 +51,13 @@ namespace AoL_PSD.Views
         protected global::System.Web.UI.WebControls.Label playlistLbl;
 
         /// <summary>
-        /// addPlaylistBtn control.
+        /// PlaylistGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addPlaylistBtn;
+        protected global::System.Web.UI.WebControls.GridView PlaylistGridView;
 
         /// <summary>
         /// songLbl control.
@@ -94,6 +94,15 @@ namespace AoL_PSD.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal audioLiteral;
+
+        /// <summary>
+        /// noMusicLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label noMusicLbl;
 
         /// <summary>
         /// MusicGridView control.

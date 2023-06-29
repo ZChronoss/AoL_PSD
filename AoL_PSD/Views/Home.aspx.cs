@@ -12,8 +12,14 @@ namespace AoL_PSD.Views
     public partial class Home : System.Web.UI.Page
     {
         MusicHandler mh = new MusicHandler();
+        PlaylistHandler ph = new PlaylistHandler();
         protected void Page_Load(object sender, EventArgs e)
         {
+            // buat tampilin music di playlist
+            List<Playlist> playlistmusics = ph.GetPlaylistMusics();
+            PlaylistGridView.DataSource = playlistmusics;
+            PlaylistGridView.DataBind();
+
             // buat tampilin Musics
             List<Music> themusics = mh.GetMusics();
             MusicGridView.DataSource = themusics;
@@ -36,8 +42,16 @@ namespace AoL_PSD.Views
             }
 
             Music randMusic = mh.getRandomSong();
-            String loc = "../Song/" + randMusic.FileLocation;
-            audioLiteral.Text = "<audio controls> <source src='../Song/" + loc + "' type='audio/ogg' /></audio>";
+
+            if (randMusic == null)
+            {
+                noMusicLbl.Visible = true;
+            }
+            else
+            {
+                String loc = "../Song/" + randMusic.FileLocation;
+                audioLiteral.Text = "<audio controls> <source src='../Song/" + loc + "' type='audio/ogg' /></audio>";
+            }
         }
 
         protected void premiumBtn_Click(object sender, EventArgs e)
@@ -48,6 +62,20 @@ namespace AoL_PSD.Views
         protected void addSongBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Views/AddSong.aspx");
+        }
+
+        protected void MusicGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            // buat musicID
+            GridViewRow row = MusicGridView.Rows[e.RowIndex];
+            int id = Convert.ToInt32(row.Cells[0].Text);
+
+            // buat userID
+            User user = (User)Session["User"];
+
+            // execute
+            ph.addToPlaylist(user, id);
+            
         }
     }
 }
