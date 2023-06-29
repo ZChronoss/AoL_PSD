@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Navbar.master.cs" Inherits="AoL_PSD.Views.Navbar" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <nav>
+                <div>
+                    <asp:Button ID="Home" runat="server" Text="Home" Visible="false" OnClick="Home_Click"/>
+                    <asp:Button ID="AddSong" runat="server" Text="Add Song" Visible="false" OnClick="AddSong_Click"/>                    
+                    <asp:Button ID="Premium" runat="server" Text="Be a Premium" Visible="false" OnClick="Premium_Click"/>
+                    <asp:Button ID="Logout" runat="server" Text="Logout" Visible="false" OnClick="Logout_Click" BackColor="Red" style="color:white;"/>
+                </div>
+            </nav>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
