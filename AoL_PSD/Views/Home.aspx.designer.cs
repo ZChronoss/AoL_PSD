@@ -42,6 +42,15 @@ namespace AoL_PSD.Views
         protected global::System.Web.UI.WebControls.Label premiumUserLabel;
 
         /// <summary>
+        /// Logout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Logout;
+
+        /// <summary>
         /// playlistLbl control.
         /// </summary>
         /// <remarks>
@@ -112,5 +121,14 @@ namespace AoL_PSD.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView MusicGridView;
+
+        /// <summary>
+        /// AddPlaylistError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AddPlaylistError;
     }
 }

@@ -18,9 +18,29 @@ namespace AoL_PSD.Repository
             db.SaveChanges();
         }
 
-        public List<Playlist> GetPlaylistMusics()
+        public void deletePlaylist(int userId, int musicId)
         {
-            return db.Playlist.ToList();
+            Playlist delPlaylist = db.Playlist.Where(x => x.MusicId == musicId && x.UserId == userId).FirstOrDefault();
+
+            db.Playlist.Remove(delPlaylist);
+            db.SaveChanges();
+        }
+
+        public List<Playlist> GetPlaylistMusics(int userId)
+        {
+            return db.Playlist.Where(x => x.UserId == userId).ToList();
+        }
+
+        public bool sameMusic(int musicid, int userid)
+        {
+            Playlist valid = db.Playlist.Where(x => x.MusicId == musicid && x.UserId == userid).FirstOrDefault();
+
+            if(valid == null)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

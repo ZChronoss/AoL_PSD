@@ -10,7 +10,7 @@ namespace AoL_PSD.Controller
 {
     public class MusicController
     {
-        MusicHandler mh = new MusicHandler();
+        MusicHandler mh = new MusicHandler();        
 
         public List<bool> AddMusic(User artist, string title, String genre, String fileName, String fileExt)
         {

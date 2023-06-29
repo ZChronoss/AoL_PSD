@@ -17,9 +17,20 @@ namespace AoL_PSD.Handler
             Music music = mr.GetAMusic(id);
             pr.addMusicToPlaylist(user, music, DateTime.Now);
         }
-        public List<Playlist> GetPlaylistMusics()
+
+        public void deletePlaylist(int userId, int musicId)
         {
-            return pr.GetPlaylistMusics();
+            pr.deletePlaylist(userId, musicId);
+        }
+
+        public List<Playlist> GetPlaylistMusics(int userId)
+        {
+            return pr.GetPlaylistMusics(userId);
+        }
+
+        public bool sameMusic(int musicid, int userid)
+        {
+            return pr.sameMusic(musicid, userid);
         }
     }
 }

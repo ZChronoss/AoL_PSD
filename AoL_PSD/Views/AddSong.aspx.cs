@@ -14,6 +14,7 @@ namespace AoL_PSD.Views
     {
         MusicController mc = new MusicController();
         MusicHandler mh = new MusicHandler();
+        UserHandler uh = new UserHandler();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -92,6 +93,8 @@ namespace AoL_PSD.Views
                 if (valid)
                 {
                     SongFile.SaveAs(Server.MapPath("~/Song/") + fileName + fileExt);
+                    User updatedUser = uh.EditPremium(user.Id);
+                    Session["User"] = updatedUser;
                     Response.Redirect("~/Views/Home.aspx");
                 }
             }

@@ -14,14 +14,24 @@
                 <asp:Button ID="premiumBtn" runat="server" Text="Upgrade to premium" BackColor="Yellow" Width="170" Height="40" onClick="premiumBtn_Click"/>
                 <asp:Label ID="premiumUserLabel" runat="server" Text="You are a premium user!" ForeColor="Green" Visible="false"></asp:Label>
             </div>
-
+            <asp:Button ID="Logout" runat="server" Text="Logout" OnClick="Logout_Click" BackColor="Red" style="color:white;"/>
             <div class="playlist">
-                <asp:Label ID="playlistLbl" runat="server" Text="Your playlist"></asp:Label>
-                <asp:GridView ID="PlaylistGridView" runat="server" AutoGenerateColumns="False">
+                <asp:Label ID="playlistLbl" runat="server" Text="Your playlist" Visible="false"></asp:Label>
+                <asp:GridView ID="PlaylistGridView" runat="server" AutoGenerateColumns="False" OnRowDeleting="PlaylistGridView_RowDeleting" >
                     <Columns>
+                        <asp:BoundField DataField="Music.Id" HeaderText="Music ID" SortExpression="Music.Id" />
                         <asp:BoundField DataField="Music.Title" HeaderText="Name" SortExpression="Music.Title" />
                         <asp:BoundField DataField="User.username" HeaderText="Artist" SortExpression="User.username" />
                         <asp:BoundField DataField="DateAddedToPlaylist" HeaderText="Date added to Playlist" SortExpression="DateAddedToPlaylist" />
+                        <asp:BoundField DataField="Music.FileLocation" HeaderText="Song" SortExpression="FileLocation" />
+                        <asp:TemplateField HeaderText="Play">
+                            <ItemTemplate>
+                                <audio controls>
+                                    <source src="../Song/<%#Eval("Music.FileLocation") %>" type="audio/ogg" />
+                                </audio>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:CommandField ShowDeleteButton="true" HeaderText="Action" ButtonType="Button" />
                     </Columns>
                 </asp:GridView>             
             </div>
@@ -52,10 +62,11 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         
-                        <asp:ButtonField ButtonType="Button" CommandName="Delete" HeaderText="Add to playlist" ShowHeader="True" Text="Add" />
+                        <asp:ButtonField ButtonType="Button" CommandName="Delete" HeaderText="Add to playlist" ShowHeader="True" Text="Add" Visible="false" />
                         
                     </Columns>
                 </asp:GridView>
+                <asp:Label ID="AddPlaylistError" runat="server" Text="You have that music in your playlist already!" Visible="false" style="color:red;"></asp:Label>
             </div>
         </div>
     </form>
