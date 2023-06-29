@@ -11,6 +11,10 @@
         <h1 style="text-align: center;">Add a song</h1>
         <div style="display:flex; flex-direction:column; align-items: center; justify-content: center; gap:10px;">
 
+            <div>
+                <asp:Button ID="HomeBtn" runat="server" Text="Cancel" OnClick="HomeBtn_Click" BackColor="DarkRed" style="color:white;" Height="30" Width="70" />
+            </div>
+
             <div class="title" style="text-align:center;">
                 <asp:TextBox ID="TitleTextBox" runat="server" placeholder="Song title" Width="300" Height="40" Font-Size="Medium"></asp:TextBox><br />
                 <asp:Label ID="TitleValid" runat="server" Visible="false" style="color:red;" Text="There has to be a song title!" ></asp:Label>
@@ -29,7 +33,7 @@
             </div>
 
             <div class="button">
-                <asp:Button ID="addMusicBtn" runat="server" Text="Add song!" OnClick="addMusicBtn_Click" BackColor="LightGreen" Width="100"/>
+                <asp:Button ID="addMusicBtn" runat="server" Text="Add song!" OnClick="addMusicBtn_Click" BackColor="LightGreen" Width="120" Height="40" Font-Size="Medium" />
             </div>
 
             <div class="errorMessage">
