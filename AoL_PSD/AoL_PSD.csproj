@@ -92,6 +92,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Query.txt" />
     <Content Include="Views\AddSong.aspx" />
     <Content Include="Views\Home.aspx" />
     <Content Include="Views\Login.aspx" />
