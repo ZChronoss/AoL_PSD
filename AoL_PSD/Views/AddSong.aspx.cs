@@ -103,5 +103,10 @@ namespace AoL_PSD.Views
                 FileValid.Visible = true;
             }
         }
+
+        protected void HomeBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/Home.aspx");
+        }
     }
 }

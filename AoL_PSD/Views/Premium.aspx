@@ -43,21 +43,6 @@
                     <asp:ListItem Text="Indomaret" Value="indomaret"></asp:ListItem>
                 </asp:RadioButtonList>
             </div>
-            <%--<div class="payment-option">
-                <asp:RadioButton ID="RadioButton1" runat="server" Text="Credit card" GroupName="paymentMethods" />
-            </div>
-
-            <div class="payment-option">
-                <asp:RadioButton ID="RadioButton2" runat="server" Text="Paypal" GroupName="paymentMethods" />
-            </div>
-
-            <div class="payment-option">
-                <asp:RadioButton ID="RadioButton3" runat="server" Text="Gopay" GroupName="paymentMethods" />
-            </div>
-
-            <div class="payment-option">
-                <asp:RadioButton ID="RadioButton4" runat="server" Text="Indomaret" GroupName="paymentMethods" />
-            </div>--%>
 
             <asp:Button ID="submitBtn" runat="server" Text="Submit and become premium!" onClick="submitBtn_Click"/>
             <div class="errorMessage">
